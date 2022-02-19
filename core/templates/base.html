@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://w7.pngwing.com/pngs/426/571/png-transparent-burger-and-drink-fast-food-junk-food-drink-junk-food-food-text-fast-food-restaurant.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>{% block title %} {% endblock %}</title>
+    <link href='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css' rel='stylesheet'>
+                                <link href='https://use.fontawesome.com/releases/v5.7.2/css/all.css' rel='stylesheet'>
+                                <style>.breadcrumb-item+.breadcrumb-item::before {
+    content: ">"
+}
+
+.breadcrumb {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: .1rem 0rem !important;
+    margin-bottom: 0rem;
+    list-style: none;
+    background-color: #ffffff;
+    border-radius: .25rem
+}
+
+.single_product {
+    padding-top: 66px;
+    padding-bottom: 140px;
+    background-color: #e5e5e5;
+    margin-top: 0px;
+    padding: 17px
+}
+
+.product_name {
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 0px
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.50em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem
+}
+
+.product-rating {
+    margin-top: 10px
+}
+
+.rating-review {
+    color: #5b5b5b
+}
+
+.product_price {
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: 9px;
+    clear: left
+}
+
+.product_discount {
+    display: inline-block;
+    font-size: 17px;
+    font-weight: 300;
+    margin-top: 9px;
+    clear: left;
+    margin-left: 10px;
+    color: red
+}
+
+.product_saved {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 200;
+    color: #999999;
+    clear: left
+}
+
+.singleline {
+    margin-top: 1rem;
+    margin-bottom: .40rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, .1)
+}
+
+.product_info {
+    color: #4d4d4d;
+    display: inline-block
+}
+
+.product_options {
+    margin-bottom: 10px
+}
+
+.product_description {
+    padding-left: 0px
+}
+
+.product_quantity {
+    width: 104px;
+    height: 47px;
+    border: solid 1px #e5e5e5;
+    border-radius: 3px;
+    overflow: hidden;
+    padding-left: 8px;
+    padding-top: -4px;
+    padding-bottom: 44px;
+    float: left;
+    margin-right: 22px;
+    margin-bottom: 11px
+}
+
+.order_info {
+    margin-top: 18px
+}
+
+.shop-button {
+    height: 47px
+}
+
+.product_fav i {
+    line-height: 44px;
+    color: #cccccc
+}
+
+.product_fav {
+    display: inline-block;
+    width: 52px;
+    height: 46px;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 11%;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 3px;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease
+}
+
+.br-dashed {
+    border-radius: 5px;
+    border: 1px dashed #dddddd;
+    margin-top: 6px
+}
+
+.pr-info {
+    margin-top: 2px;
+    padding-left: 2px;
+    margin-left: -14px;
+    padding-left: 0px
+}
+
+.break-all {
+    color: #5e5e5e
+}
+
+.image_selected {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% + 15px);
+    height: 525px;
+    -webkit-transform: translateX(-15px);
+    -moz-transform: translateX(-15px);
+    -ms-transform: translateX(-15px);
+    -o-transform: translateX(-15px);
+    transform: translateX(-15px);
+    border: solid 1px #e8e8e8;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 15px
+}
+
+.image_list li {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 165px;
+    border: solid 1px #e8e8e8;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1) !important;
+    margin-bottom: 15px;
+    cursor: pointer;
+    padding: 15px;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease;
+    overflow: hidden
+}
+
+@media (max-width: 390px) {
+    .product_fav {
+        display: none
+    }
+}
+
+.bbb_combo {
+    width: 100%;
+    margin-right: 7%;
+    padding-top: 21px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 24px;
+    border-radius: 5px;
+    margin-top: 0px;
+    text-align: -webkit-center
+}
+
+.bbb_combo_image {
+    width: 170px;
+    height: 170px;
+    margin-bottom: 15px
+}
+
+.fs-10 {
+    font-size: 10px
+}
+
+.step {
+    background: #167af6;
+    border-radius: 0.8em;
+    -moz-border-radius: 0.8em;
+    -webkit-border-radius: 6.8em;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 3.6em;
+    margin-right: 5px;
+    text-align: center;
+    width: 3.6em;
+    margin-top: 116px
+}
+
+.row-underline {
+    content: "";
+    display: block;
+    border-bottom: 2px solid #3798db;
+    margin: 0px 0px;
+    margin-bottom: 20px;
+    margin-top: 15px
+}
+
+.deal-text {
+    margin-left: -10px;
+    font-size: 25px;
+    margin-bottom: 10px;
+    color: #000;
+    font-weight: 700
+}
+
+.padding-0 {
+    padding-left: 0;
+    padding-right: 0
+}
+
+.padding-2 {
+    margin-right: 2px;
+    margin-left: 2px
+}
+
+.vertical-line {
+    display: inline-block;
+    border-left: 3px solid #167af6;
+    margin: 0 10px;
+    height: 364px;
+    margin-top: 4px
+}
+
+.p-rating {
+    color: green
+}
+
+.combo-pricing-item {
+    display: flex;
+    flex-direction: column
+}
+
+.boxo-pricing-items {
+    display: inline-flex
+}
+
+.combo-plus {
+    margin-left: 10px;
+    margin-right: 18px;
+    margin-top: 10px
+}
+
+.add-both-cart-button {
+    margin-left: 36px
+}
+
+.items_text {
+    color: #b0b0b0
+}
+
+.combo_item_price {
+    font-size: 18px
+}
+
+.p_specification {
+    font-weight: 500;
+    margin-left: 22px
+}
+
+.mt-10 {
+    margin-top: 10px
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+    text-shadow: rgba(0, 0, 0, .01) 0 0 1px
+}
+
+body {
+
+    font-weight: 400;
+    background: #FFFFFF;
+    color: #000000
+}
+
+div {
+    display: block;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+ul {
+    list-style: none;
+    margin-bottom: 0px
+}
+
+.single_product {
+    padding-top: 16px;
+    padding-bottom: 140px
+}
+
+.image_list li {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 165px;
+    border: solid 1px #e8e8e8;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    cursor: pointer;
+    padding: 15px;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease;
+    overflow: hidden
+}
+
+.image_list li:last-child {
+    margin-bottom: 0
+}
+
+.image_list li:hover {
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3)
+}
+
+.image_list li img {
+    max-width: 100%
+}
+
+.image_selected {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% + 15px);
+    height: 525px;
+    -webkit-transform: translateX(-15px);
+    -moz-transform: translateX(-15px);
+    -ms-transform: translateX(-15px);
+    -o-transform: translateX(-15px);
+    transform: translateX(-15px);
+    border: solid 1px #e8e8e8;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 15px
+}
+
+.image_selected img {
+    max-width: 100%
+}
+
+.product_category {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.5)
+}
+
+.product_rating {
+    margin-top: 7px
+}
+
+.product_rating i {
+    margin-right: 4px
+}
+
+.product_rating i::before {
+    font-size: 13px
+}
+
+.product_text {
+    margin-top: 27px
+}
+
+.product_text p:last-child {
+    margin-bottom: 0px
+}
+
+.order_info {
+    margin-top: 16px
+}
+
+.product_quantity {
+    width: 182px;
+    height: 50px;
+    border: solid 1px #e5e5e5;
+    border-radius: 5px;
+    overflow: hidden;
+    padding-left: 25px;
+    float: left;
+    margin-right: 30px
+}
+
+.product_quantity span {
+    display: block;
+    height: 50px;
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.5);
+    line-height: 50px;
+    float: left
+}
+
+.product_quantity input {
+    display: block;
+    width: 30px;
+    height: 50px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.5);
+    text-align: left;
+    padding-left: 9px;
+    line-height: 50px;
+    float: left
+}
+
+.quantity_buttons {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 29px;
+    border-left: solid 1px #e5e5e5
+}
+
+.quantity_inc,
+.quantity_dec {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+    cursor: pointer
+}
+
+.quantity_control i {
+    font-size: 11px;
+    color: rgba(0, 0, 0, 0.3);
+    pointer-events: none
+}
+
+.quantity_control:active {
+    border: solid 1px rgba(14, 140, 228, 0.2)
+}
+
+.quantity_inc {
+    padding-bottom: 2px;
+    justify-content: flex-end;
+    border-top-right-radius: 5px
+}
+
+.quantity_dec {
+    padding-top: 2px;
+    justify-content: flex-start;
+    border-bottom-right-radius: 5px
+}
+
+  .image{
+        height: 350px;
+      }
+.ppp{
+    color: rgb(255, 192, 169);
+    font-size: 17px;
+    font-family: serif;
+}
+.h5h{
+    color: rgb(250, 176, 149);
+}
+.OurMission{
+    width: 590px;
+    font-family: serif;
+    margin-left: 40px;
+
+}
+.OurMission h1{
+    margin-left: 150px;
+}
+.about_img{
+    height: 350px;
+    width: 500px;
+    margin-left: 30px;
+}
+.aboutUs{
+    display: flex;
+    justify-content: flex-start;
+}
+.botton{
+    margin-left: 700px;
+}
+
+.featured__controls {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.featured__controls ul li {
+	list-style: none;
+	font-size: 18px;
+	color: #1c1c1c;
+	display: inline-block;
+	margin-right: 25px;
+	position: relative;
+	cursor: pointer;
+}
+
+.featured__controls ul li.active:after {
+	opacity: 1;
+}
+
+.featured__controls ul li:after {
+	position: absolute;
+	left: 0;
+	bottom: -2px;
+	width: 100%;
+	height: 2px;
+	background: #7fad39;
+	content: "";
+	opacity: 0;
+}
+
+.featured__controls ul li:last-child {
+	margin-right: 0;
+}
+
+</style>
+<script type='text/javascript' src=''></script>
+<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+<script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
+
+</head>
+<body>
+
+    <header class="p-3 bg-dark text-white">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+    
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              <li><a href="{% url 'base' %}" class="nav-link px-2 text-secondary">Главное</a></li>
+               <li><a href="/#products/" class="nav-link px-2 text-white">Продукты</a></li>
+              <li><a href="{% url 'cart' %}" class="nav-link px-2 text-white">Корзина</a></li>
+              <!-- <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li> -->
+              <li><a href="{% url 'aboutUs' %}" class="nav-link px-2 text-white">О нас</a></li>
+            </ul>
+    
+            <form action="{% url 'search' %}" method="POST" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                {% csrf_token %}
+              <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search" name="search">
+            </form>
+              
+              <div class="text-end">
+                  <button type="button" class="btn btn-outline-light me-2">Login</button>
+              <button type="button" class="btn btn-outline-light">Sign-up</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {% block content %}
+    
+
+      {% endblock %}
+
+
+
+    <footer class="bd-footer py-5 mt-5 bg-light">
+        <div class="container py-5">
+          <div class="row">
+            <div class="col-lg-3 mb-3">
+              <a class="d-inline-flex align-items-center mb-2 link-dark text-decoration-none" href="/" aria-label="Bootstrap">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="d-block me-2" viewBox="0 0 118 94" role="img"><title>Bootstrap</title><path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z" fill="currentColor"></path></svg>
+                <span class="fs-5">Bootstrap</span>
+              </a>
+              <ul class="list-unstyled small text-muted">
+                <li class="mb-2">Designed and built with all the love in the world by the <a href="/docs/5.0/about/team/">Bootstrap team</a> with the help of <a href="https://github.com/twbs/bootstrap/graphs/contributors">our contributors</a>.</li>
+                <li class="mb-2">Code licensed <a href="https://github.com/twbs/bootstrap/blob/main/LICENSE" target="_blank" rel="license noopener">MIT</a>, docs <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="license noopener">CC BY 3.0</a>.</li>
+                <li class="mb-2">Currently v5.0.2.</li>
+              </ul>
+            </div>
+            <div class="col-6 col-lg-2 offset-lg-1 mb-3">
+              <h5>Links</h5>
+              <ul class="list-unstyled">
+                <li class="mb-2"><a href="/">Home</a></li>
+                <li class="mb-2"><a href="/docs/5.0/">Docs</a></li>
+                <li class="mb-2"><a href="/docs/5.0/examples/">Examples</a></li>
+                <li class="mb-2"><a href="https://themes.getbootstrap.com/">Themes</a></li>
+                <li class="mb-2"><a href="https://blog.getbootstrap.com/">Blog</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-lg-2 mb-3">
+              <h5>Contacts</h5>
+              <ul class="list-unstyled">
+                <li class="mb-2"><a href="#">Instagram</a></li>
+                <li class="mb-2"><a href="#"><Tem>telegram</Tem></a></li>
+                <li class="mb-2"><a href="#">Whats App</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-lg-2 mb-3">
+              <h5>Заголовки</h5>
+              <ul class="list-unstyled">
+                <li class="mb-2"><a href="{% url 'base' %}">Главное</a></li>
+                <li class="mb-2"><a href="{% url 'cart' %}">Корзина</a></li>
+                <li class="mb-2"><a href="/#products/">Продукты</a></li>
+                <li class="mb-2"><a href="{% url 'aboutUs' %}">О нас</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%} about Us {% endblock %}
+
+{% block content %}
+<style>
+body{
+    background-color: rgb(239, 154, 94);
+}
+</style>
+<div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://akorbi.com/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/elementor/thumbs/shutterstock_1269168871-p1835pjc0gmwenuukl8tq18a6y99sa4plj30d7a1yo.jpg.webp" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 class="h5h">About us</h5>
+          <p class="ppp">За короткое время мы способны сделать приятным обед на работе, лёгким и вкусным - праздничный ужин, а также успеваем накормить всех тех, кто желает испробовать вкусной и необычной пищи.</p>
+        </div>
+      </div>
+  </div>
+  <div class="mt-5 aboutUs">
+    <div class="OurMission">
+      <h1>НАША МИССИЯ</h1>
+      <p>«Привнести вкусную еду в вашу повседневную жизнь. Это наша миссия. <br>Это означает, что мы не просто доставляем - мы приносим это, всегда делая все возможное, чтобы сделать ваш опыт незабываемым. <br><br>
+    А это значит, что это вкусная еда, которой можно наслаждаться каждый день: от ярких салатов для здорового офисного обеда до вкусной пиццы для всей семьи и свежих суши для романтического вечера. Что бы вы ни пожелали, мы можем помочь».
+    </p>
+    <h2>Во всех городах КР!!!</h2>
+    </div>
+    <div class="about_img">
+        <img src="https://st.depositphotos.com/1000331/3247/v/450/depositphotos_32473419-stock-illustration-kyrgyzstan-map.jpg" alt="">
+    </div>
+</div>
+<div>
+    <a class="btn btn-outline-light botton" href="{% url 'base' %}" role="button">Главное</a>
+</div>
+{% endblock %}
