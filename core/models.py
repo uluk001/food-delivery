@@ -1,6 +1,10 @@
 from distutils.command.upload import upload
+from email import message
+from email.policy import default
 from itertools import product
+import numbers
 from tabnanny import verbose
+from unicodedata import name
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -32,3 +36,20 @@ class ProductsCart(models.Model):
     class Meta:
         verbose_name_plural = "Product's cart"
         verbose_name = "Product's carts"
+
+class Customer(models.Model):
+    name = models.CharField(max_length=100) 
+    last_name = models.CharField(max_length=100, blank=True) 
+    number = models.CharField(max_length=1000)
+    addres = models.CharField(max_length=500) 
+    message = models.TextField()
+
+
+class Order(models.Model):
+    product = models.ForeignKey(FoodCard, on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1)
+    price = models.IntegerField()
+    phone = models.IntegerField()
+    addres = models.CharField(max_length=100, null=True)
+    date = models.DateTimeField(auto_now_add=True)
