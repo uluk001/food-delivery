@@ -13,17 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.conf.urls.static import static
-from django.contrib import admin
-from django.urls import include, path
-from food_delivery.settings import MEDIA_ROOT, MEDIA_URL
+from apps.users.views import (CreateUserView, EmailVerificationView,
+                              UserLoginView, UserProfileView)
+from django.contrib.auth.decorators import login_required
+from django.urls import path
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('apps.core.urls')),
-    path('users/', include('apps.users.urls')),
-    path('accounts/', include('allauth.urls')),
-    path('__debug__/', include('debug_toolbar.urls')),
+    path('login/', UserLoginView.as_view(), name='login'),  # Регистрация
+    path('profile/<int:pk>', login_required(UserProfileView.as_view()), name='profile'),  # Войти
+    path('registration/', CreateUserView.as_view(), name='registration'),  # Выйти
+    path('verify/<str:email>/<uuid:code>', EmailVerificationView.as_view(), name='verify'),
 ]
-
-urlpatterns += static(MEDIA_URL, document_root=MEDIA_ROOT)

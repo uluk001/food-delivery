@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-{% load static %}
-{% block title %} Доставка еды {% endblock %}
+{% load static cache %}
+{% block title %}{{ title }}{% endblock %}
 {% block content %}
 
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -42,14 +42,16 @@
     </button>
   </div>
   <div>
-    {% for i in categories %}
+    <!-- {% cache 30 category %} -->  <!--   Кеширование -->
+    {% for i in category %}
     <div class="cardss flex ">
       
       <h1 class="text-center mt-5" id="products">{{ i.title }}</h1>
       <div class="container d-flex justify-content-around">
-      {% for foodcard in foodCards %}
-      {% if foodcard.category == i %}
-      <div class="card mt-5" style="width: 18rem;">
+        <!-- {% cache 30 object_list %} -->  <!--   Кеширование -->
+        {% for foodcard in object_list %}
+        {% if foodcard.category == i %}
+        <div class="card mt-5" style="width: 18rem;">
         <img src="{{ foodcard.image.url }}" class="card-img-top" alt="jpeg">
         <div class="card-body">
           <a href="{% url 'product' id=foodcard.id %}" class="card-title text-decoration-none fw-bold text-dark">{{ foodcard.name }}</a>
@@ -60,8 +62,10 @@
       </div>      
       {% endif %}
       {% endfor %}
+      <!-- {% endcache %}  -->   <!--   Кеширование -->
     </div>
     {% endfor %}
+    <!-- {% endcache %}  -->   <!--   Кеширование -->
 </div>
 
   

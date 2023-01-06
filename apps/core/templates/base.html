@@ -629,13 +629,7 @@ ul {
             </form>
               
               <div class="text-end">
-                  {% if user.is_authenticated %}
-                  <a>{{user}}</a> &nbsp; &nbsp;
-                  <a href="{% url 'signout' %}" type="button" class="btn btn-outline-light">Logout</a>
-                  {% else %}
-                    <a href="{% url 'signin' %}" type="button" class="btn btn-outline-light me-2">Login</a>
-                    <a href="{% url 'signUp'%}" type="button" class="btn btn-outline-light">Sign-up</a>
-                  {% endif %}
+
             </div>
           </div>
         </div>

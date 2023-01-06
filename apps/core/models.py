@@ -1,20 +1,15 @@
-from distutils.command.upload import upload
-from email import message
-from email.policy import default
-from itertools import product
-import numbers
-from tabnanny import verbose
-from unicodedata import name
 from django.db import models
-from django.contrib.auth.models import User
 
 
 class Category(models.Model):
     title = models.CharField(max_length=50, verbose_name='Категория')
+
     def __str__(self):
         return self.title
 
 # Create your models here.
+
+
 class FoodCard(models.Model):
     name = models.CharField(max_length=50, verbose_name='Название еды')
     description = models.TextField(verbose_name='Описание')
@@ -25,23 +20,25 @@ class FoodCard(models.Model):
     def __str__(self):
         return self.name
 
+
 class ProductsCart(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    product = models.CharField(max_length=100) 
+    # user = models.ForeignKey(User, on_delete=models.CASCADE)
+    product = models.CharField(max_length=100)
     photo = models.ImageField(upload_to='cart', blank=True, null=True)
     count = models.IntegerField()
     price = models.IntegerField()
-    total_price = models.IntegerField() 
-    
+    total_price = models.IntegerField()
+
     class Meta:
         verbose_name_plural = "Product's cart"
         verbose_name = "Product's carts"
 
+
 class Customer(models.Model):
-    name = models.CharField(max_length=100) 
-    last_name = models.CharField(max_length=100, blank=True) 
+    name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100, blank=True)
     number = models.CharField(max_length=1000)
-    addres = models.CharField(max_length=500) 
+    addres = models.CharField(max_length=500)
     message = models.TextField()
 
 
