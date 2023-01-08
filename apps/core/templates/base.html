@@ -629,7 +629,15 @@ ul {
             </form>
               
               <div class="text-end">
-
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'profile' user.id %}" class="nav-link px-2 text-white">{{user.username}}</a></li>
+                        <li><a href="{% url 'signout' %}" class="nav-link px-2 text-white">Выйти</a></li>
+                    {% else %}
+                        <li><a href="{% url 'login' %}" class="nav-link px-2 text-secondary">Войти</a></li>
+                        <li><a href="{% url 'registration' %}" class="nav-link px-2 text-white">Регистрация</a></li>
+                    {% endif %}
+                </ul>
             </div>
           </div>
         </div>

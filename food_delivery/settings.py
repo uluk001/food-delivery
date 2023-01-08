@@ -170,13 +170,6 @@ AUTH_USER_MODEL = 'users.User'
 # Sending emails
 
 
-# EMAIL_HOST = 'smtp.yandex.com'
-# EMAIL_PORT = 465
-# EMAIL_HOST_USER = 'ismailovuluk001@yandex.ru'
-# EMAIL_HOST_PASSWORD = 'iloveyoutina002'
-# EMAIL_USE_SSL = True
-
-
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_HOST_USER = 'nomad_store@mail.ru'

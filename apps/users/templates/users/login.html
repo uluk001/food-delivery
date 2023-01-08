@@ -21,6 +21,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
+            <input name="next" type="hidden" value="{% url 'base' %}">
           </form>
           {% if form.non_field_errors or messages%}
             {% if messages %}
