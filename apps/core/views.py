@@ -1,11 +1,12 @@
-from apps.core.models import Category, Customer, FoodCard, Order
-from common.view import TitleMixin
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.cache import cache
 from django.shortcuts import redirect, render
 from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
-from django.core.cache import cache
+
+from apps.core.models import Category, Customer, FoodCard, Order
+from common.view import TitleMixin
 
 # Create your views here.
 
@@ -20,7 +21,6 @@ class ProductListView(TitleMixin, ListView):
     template_name = 'index.html'
     title = 'Store'
 
-
     def get_context_data(self, **kwargs):
         context = super(ProductListView, self).get_context_data()
         categories = cache.get('category')
@@ -30,7 +30,6 @@ class ProductListView(TitleMixin, ListView):
         else:
             context['category'] = categories
         return context
-
 
 
 def product(request, id):
@@ -50,7 +49,6 @@ def addCart(request, pk):
 #     foodCards = FoodCard.objects.all()
 #     context = {'foodCards':foodCards, 'categories':categories}
 #     return render(request, 'index.html', context=context)
-
 
 
 # def cart(request):

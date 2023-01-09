@@ -1,12 +1,14 @@
 # import datetime
 # import uuid
 
-from apps.users.models import User
 # from apps.users.models import EmailVerification
 from django import forms
 from django.contrib.auth.forms import (AuthenticationForm, UserChangeForm,
                                        UserCreationForm)
+
+from apps.users.models import User
 from apps.users.tasks import send_emai_verification
+
 
 class UserLoinForm(AuthenticationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={

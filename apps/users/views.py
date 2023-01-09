@@ -1,15 +1,16 @@
 # from django.contrib import auth, messages
-from apps.users.forms import (UserLoinForm, UserProfileForm,
-                              UserRegistrationForm)
-from apps.users.models import EmailVerification, User
-from common.view import TitleMixin
-from django.contrib.auth.views import LoginView
 from django.contrib.auth import logout
+from django.contrib.auth.views import LoginView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView
+
+from apps.users.forms import (UserLoinForm, UserProfileForm,
+                              UserRegistrationForm)
+from apps.users.models import EmailVerification, User
+from common.view import TitleMixin
 
 # Create your views here.
 
@@ -58,7 +59,6 @@ class EmailVerificationView(TitleMixin, TemplateView):
             return super(EmailVerificationView, self).get(request, *args, **kwargs)
         else:
             return HttpResponseRedirect(reverse('base'))
-
 
 
 def signout(request):
